@@ -5,10 +5,10 @@ by the [OWASP Foundation](https://owasp.org) and [Ecma TC54](https://tc54.org).
 
 ## Editions and Versioning
 
-| Ecma Edition         | CycloneDX Version      |
-|----------------------|------------------------|
-| ECMA-424 2nd Edition | CycloneDX v1.7 (draft) |
-| ECMA-424 1st Edition | CycloneDX v1.6         |
+| Ecma Edition          | CycloneDX Version      |
+|-----------------------|------------------------|
+| ECMA-424, 2nd Edition | CycloneDX v1.7 (draft) |
+| ECMA-424, 1st Edition | CycloneDX v1.6         |
 
 ## Documentation Generation
 
