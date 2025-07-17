@@ -1,0 +1,185 @@
+name: 'Build and Deploy Documentation'
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    name: 'Install Dependencies'
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm ci --no-audit --no-fund --verbose
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
+
+      - name: Cache node_modules
+        uses: actions/cache/save@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+
+  generate-spec:
+    name: 'Generate spec.html'
+    runs-on: ubuntu-22.04
+    needs: install
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Restore node_modules
+        uses: actions/cache/restore@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Build Project
+        run: npm run generate-spec
+
+      - name: Cache spec.html
+        uses: actions/cache/save@v4
+        with:
+          path: spec.html
+          key: spec-html-${{ github.sha }}
+
+      - name: Archive spec.html
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-spec
+          path: ./spec.html
+
+  build-docs:
+    name: 'Build Documentation'
+    runs-on: ubuntu-22.04
+    needs: generate-spec
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Restore node_modules
+        uses: actions/cache/restore@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Restore spec.html
+        uses: actions/cache/restore@v4
+        with:
+          path: spec.html
+          key: spec-html-${{ github.sha }}
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Archive "out" Directory
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-documentation
+          path: ./out
+
+  deploy-docs:
+    name: 'Deploy Documentation'
+    runs-on: ubuntu-22.04
+    needs: build-docs
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Restore html-documentation Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: html-documentation
+          path: ./out
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+
+  build-for-pdf:
+    name: 'Build Documentation for PDF'
+    runs-on: ubuntu-22.04
+    needs: generate-spec
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Restore node_modules
+        uses: actions/cache/restore@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Restore spec.html
+        uses: actions/cache/restore@v4
+        with:
+          path: spec.html
+          key: spec-html-${{ github.sha }}
+
+      - name: Build for PDF
+        run: npm run build-for-pdf
+
+      - name: Archive PDF Output Directory
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-printable-documentation
+          path: ./out
+
+  publish-pdf:
+    name: 'Publish PDF'
+    runs-on: ubuntu-22.04
+    needs: build-for-pdf
+    steps:
+      - name: Restore PDF Output
+        uses: actions/download-artifact@v4
+        with:
+          name: html-printable-documentation
+          path: ./out
+
+      - name: Run Prince Container
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}/out:/work" \
+            -e LICENSE_FILE="${{ secrets.PRINCE_LICENSE }}" \
+            ghcr.io/ecma-tc54/princexml:main \
+            --script /usr/local/lib/node_modules/ecmarkup/js/print.js /work/index.html -o /work/spec.pdf
+
+      - name: Archive PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-snapshot
+          path: ./out/spec.pdf

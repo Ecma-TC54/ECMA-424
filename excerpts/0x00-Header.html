@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-GB-oxendict">
+<head>
+  <title>ECMA-424: CycloneDX Bill of Materials Specification</title>
+  <meta charset="utf-8">
+  <link rel="icon" href="img/favicon.ico">
+  <style>
+  @supports (color-scheme: dark) {
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --foreground-color: #111;
+        --background-color: #fff;
+
+        --link-foreground-color: #206ca7;
+        --link-hover-foreground-color: #239dee;
+
+        --user-code-foreground-color: brown;
+
+        --var-foreground-color: #218379;
+
+        --referenced0-background-color: #ffff6c;
+        --referenced1-background-color: #ffa4a8;
+        --referenced2-background-color: #96e885;
+        --referenced3-background-color: #3eeed2;
+        --referenced4-background-color: #eacfb6;
+        --referenced5-background-color: #82ddff;
+        --referenced6-background-color: #ffbcf2;
+
+        --note-background-color: #e9fbe9;
+        --note-border-color: #52e052;
+        --note-editor-border-color: #faa;
+
+        --nt-link-foreground-color: #333;
+
+        --production-rhs-background-color: #f0f0f0;
+        --production-rhs-border-color: #888;
+
+        --params-foreground-color: #2aa198;
+        --opt-foreground-color: #b58900;
+
+        --title-foreground-color: #f60;
+
+        --caption-foreground-color: #555555;
+
+        --table-header-background-color: #eeeeee;
+
+        --highlight-background-color-start: rgba(249, 241, 172, 1);
+        --highlight-background-color-end: rgba(249, 241, 172, 0);
+
+        --highlight-background-color: rgba(249, 241, 172, 1);
+
+        --ins-background-color: #e0f8e0;
+        --ins-border-color: #396;
+
+        --del-background-color: #fee;
+
+        --control-foreground-color: #eee;
+        --control-dimmed-foreground-color: #666;
+        --control-background-color: #ddd;
+        --control-dark-background-color: #ccc;
+        --control-border-color: #aaa;
+        --control-light-border-color: #bbb;
+        --control-shortcut-background-color: #eee;
+        --control-shortcut-shadow-color: #ccc;
+        --control-dialog-fade-color: rgba(255, 255, 255, 0.6);
+
+        --control-link-foreground-color: #1567a2;
+
+        --control-input-background-color: #bbb;
+        --control-input-border-color: #999;
+
+        --menu-header-background-color: #bbb;
+        --menu-revealed-link-foreground-color: #206ca7;
+        --menu-unpin-hover-foreground-color: #bb1212;
+
+        --menu-trace-list-foreground-color: #999;
+        --menu-trace-list-background-color: #222;
+
+        --toolbox-tail-background-outside-color: rgba(0, 0, 0, 0);
+        --toolbox-tail-border-outside-color: rgba(204, 204, 204, 0);
+
+        --normative-optional-background-color: #ffeedd;
+        --normative-optional-border-color: #ff6600;
+
+        --attributes-tag-foreground-color: #884400;
+
+        --figure-background: #fff;
+      }
+    }
+  }
+  #metadata-block {
+        margin: 4em 0;
+        padding: 10px;
+        border: 1px solid #ee8421;
+    }
+    #metadata-block h1 {
+        font-size: 1.5em;
+        margin-top: 0;
+    }
+    #metadata-block > ul {
+        list-style-type: none;
+        margin: 0; padding: 0;
+    }
+
+    #ecma-logo {
+        width: 500px;
+    }
+
+    .unicode-property-table {
+        table-layout: fixed;
+        width: 100%;
+        font-size: 80%;
+    }
+
+    .corner-cell {
+        position: relative;
+        height: 2lh;
+    }
+    .corner-cell .slash {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom left, transparent calc(50% - 1px), gray, transparent calc(50% + 1px));
+    }
+    .corner-cell > .column {
+        position: absolute;
+        bottom: 0.4em;
+        left: 1em;
+    }
+    .corner-cell > .row {
+        position: absolute;
+        top: 0.4em;
+        right: 1em;
+    }
+  </style>
+</head>
+<body>
+<pre class="metadata">
+  title: CycloneDX Bill of Materials Specification
+  shortname: ECMA-424
+  status: draft
+  location: https://tc54.org/ecma424/
+  markEffects: true
+  version: DRAFT
+  <!-- version: 2<sup>nd</sup> Edition -->
+</pre>
+<p><img src="img/ecma-logo.svg" id="ecma-logo" alt="Ecma International logo"></p>
+<div id="metadata-block">
+  <h1>About this Specification</h1>
+  <p>The document at <a href="https://tc54.org/ecma424/">https://tc54.org/ecma424/</a> is the most accurate and
+    up-to-date CycloneDX specification.</p>
+  <p>This document is available as <a href>a single page</a> and as <a href="multipage/">multiple pages</a>.</p>
+  <h1>Contributing to this Specification</h1>
+  <p>This specification is developed on GitHub with the help of the OWASP community. There are a number of ways to
+    contribute to the development of this specification:</p>
+  <ul>
+    <li>GitHub Repository: <a href="https://github.com/Ecma-TC54/ECMA-424">https://github.com/Ecma-TC54/ECMA-424</a></li>
+    <li>Issues: <a href="https://github.com/Ecma-TC54/ECMA-424/issues">All Issues</a>, <a href="https://github.com/Ecma-TC54/ECMA-424/issues/new">File a New Issue</a></li>
+    <li>Pull Requests: <a href="https://github.com/Ecma-TC54/ECMA-424/pulls">All Pull Requests</a>, <a href="https://github.com/Ecma-TC54/ECMA-424/pulls/new">Create a New Pull Request</a></li>
+    <li>
+      Editors:
+      <ul>
+        <li><a href="mailto:jan.kowalleck@owasp.org">Jan Kowalleck</a></li>
+        <li><a href="mailto:steve.springett@owasp.org">Steve Springett</a></li>
+      </ul>
+    </li>
+    <li>
+      Community:
+      <ul>
+        <li>Chat: <a href="https://cyclonedx.slack.com/">Slack Workspace</a></li>
+      </ul>
+    </li>
+  </ul>
+  <p>Refer to the <emu-xref href="#sec-colophon">colophon</emu-xref> for more information on how this document is created.</p>
+</div>

@@ -1,0 +1,364 @@
+<emu-clause id="sec-overview-of-cyclonedx">
+    <h1>Overview of CycloneDX</h1>
+    <p>
+        CycloneDX is a modern standard for the software supply chain. At its core, CycloneDX is a general-purpose Bill
+        of Materials (BOM) standard capable of representing software, hardware, services, and other types of inventory.
+        The CycloneDX standard began in 2017 in the OWASP community. CycloneDX is an OWASP flagship project, has a
+        formal standardization process and governance model, and is supported by the global information security community.
+    </p>
+    <emu-clause id="sec-overview-design-philosophy-and-guiding-principles">
+        <h1>Design Philosophy and Guiding Principles</h1>
+        <p>
+            The simplicity of design is at the forefront of the CycloneDX philosophy. The format is easily understandable
+            by a wide range of technical and non-technical roles. CycloneDX is a full-stack BOM format with many advanced
+            capabilities that are achieved without sacrificing the design philosophy. Some guiding principles influencing
+            its design include:
+        </p>
+        <ul>
+            <li>Be easy to adopt and easy to contribute to</li>
+            <li>Identify risk to as many adopters as possible, as quickly as possible</li>
+            <li>Avoid blockers that prevent the identification of risk</li>
+            <li>Continuous improvement - innovate quickly and improve over time</li>
+            <li>Encourage innovation and competition through extensions</li>
+            <li>Produce immutable and backward-compatible releases</li>
+            <li>Focus on high degrees of automation</li>
+            <li>Provide a smooth path to specification compliance through prescriptive design</li>
+        </ul>
+        <h3>Defining Software Bill of Materials</h3>
+        <p>
+            The U.S. National Telecommunications and Information Administration (NTIA) defines software bill of materials
+            as "_a formal, machine-readable inventory of software components and dependencies, information about those
+            components, and their hierarchical relationships_." OWASP CycloneDX implements this definition and extends
+            it in many ways, including adding services as a foundational component in a Software Bill of Materials.
+        </p>
+        <h3>The Role of SBOM in Software Transparency</h3>
+        <p>
+            Software transparency involves providing clear and accurate information about the components used in an
+            application, including their name, version, supplier, and any dependencies required by the component. This
+            information helps identify and manage the risks associated with the software whilst also enabling compliance
+            with relevant regulations and standards. With the growing importance of software in our daily lives,
+            transparency is critical to building trust in software and ensuring that it is safe, secure, and reliable.
+        </p>
+        <p>
+            SBOMs are the vehicle through which software transparency can be achieved. With SBOMs, parties throughout
+            the software supply chain can leverage the information within to enable various use cases that would not
+            otherwise be easily achievable. SBOMs play a vital role in promoting software transparency, allowing users
+            to make informed decisions about the software they use.
+        </p>
+        <h2>High-Level SBOM Use Cases</h2>
+        <p>
+            A complete and accurate inventory of all first-party and third-party components is essential for risk
+            identification. SBOMs should ideally contain all direct and transitive components and the dependency
+            relationships between them.
+        </p>
+        <p>
+            CycloneDX far exceeds the <a href="https://www.ntia.gov/files/ntia/publications/sbom_minimum_elements_report.pdf">Minimum Elements for Software Bill of Materials</a>
+            as defined by the [National Telecommunications and Information Administration <a href="https://www.ntia.gov/">NTIA</a>
+            in response to <a href="https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/">U.S. Executive Order 14028</a>.
+        </p>
+        <p>
+            Adopting CycloneDX allows organizations to quickly meet these minimum requirements and mature into using more
+            sophisticated use cases over time. CycloneDX is capable of achieving all SBOM requirements defined in the
+            <a href="https://owasp.org/scvs">OWASP Software Component Verification Standard (SCVS)</a>.
+        </p>
+        <p>
+            A few high-level use cases for SBOM include:
+        </p>
+        <ul>
+            <li>Product security, architectural, and licence risk</li>
+            <li>Procurement and M&A</li>
+            <li>Software component transparency</li>
+            <li>Supply chain transparency</li>
+            <li>Vendor risk management</li>
+        </ul>
+        <h2>xBOM Capabilities</h2>
+        <p>
+            CycloneDX provides advanced supply chain capabilities for cyber risk reduction. Among these capabilities are:
+        </p>
+        <ul>
+            <li>Software Bill of Materials (SBOM)</li>
+            <li>Software-as-a-Service Bill of Materials (SaaSBOM)</li>
+            <li>Hardware Bill of Materials (HBOM)</li>
+            <li>Machine Learning Bill of Materials (ML-BOM)</li>
+            <li>Cryptography Bill of Materials (CBOM)</li>
+            <li>Operations Bill of Materials (OBOM)</li>
+            <li>Manufacturing Bill of Materials (MBOM)</li>
+            <li>Bill of Vulnerabilities (BOV)</li>
+            <li>Vulnerability Disclosure Report (VDR)</li>
+            <li>Vulnerability Exploitability eXchange (VEX)</li>
+            <li>CycloneDX Attestations (CDXA)</li>
+            <li>Common Release Notes Format</li>
+        </ul>
+        <h3>Software Bill of Materials (SBOM)</h3>
+        <p>
+            SBOMs describe the inventory of software components and services and the dependency relationships between
+            them. A complete and accurate inventory of all first-party and third-party components is essential for risk
+            identification. SBOMs should ideally contain all direct and transitive components and the dependency
+            relationships between them.
+        </p>
+        <h3>Software-as-a-Service BOM (SaaSBOM)</h3>
+        <p>
+            SaaSBOMs provide an inventory of services, endpoints, and data flows and classifications that power
+            cloud-native applications. CycloneDX is capable of describing any type of service, including microservices,
+            Service Orientated Architecture (SOA), Function as a Service (FaaS), and System of Systems.
+        </p>
+        <p>
+            SaaSBOMs complement Infrastructure-as-Code (IaC) by providing a logical representation of a complex system,
+            complete with an inventory of all services, their reliance on other services, endpoint URLs, data
+            classifications, and the directional flow of data between services. Optionally, SaaSBOMs may also include
+            the software components that make up each service.
+        </p>
+        <h3>Hardware Bill of Materials (HBOM)</h3>
+        <p>
+            CycloneDX supports many types of components, including hardware devices, making it ideal for use with consumer
+            electronics, IoT, ICS, and other types of embedded devices. CycloneDX fills an important role in between
+            traditional eBOM and mBOM use cases for hardware devices.
+        </p>
+        <h3>Machine Learning Bill of Materials (ML-BOM)</h3>
+        <p>
+            ML-BOMs provide transparency for machine learning models and datasets, which provide visibility into
+            possible security, privacy, safety, and ethical considerations. CycloneDX standardizes model cards in a way
+            where the inventory of models and datasets can be used independently or combined with the inventory of
+            software and hardware components or services defined in HBOMs, SBOMs, and SaaSBOMs.
+        </p>
+        <h3>Cryptography Bill of Materials (CBOM)</h3>
+        <p>
+            A Cryptography Bill of Materials (CBOM) describes cryptographic assets and their dependencies. Discovering,
+            managing, and reporting on cryptographic assets is necessary as the first step on the migration journey to
+            quantum-safe systems and applications. Cryptography is typically buried deep within components used to
+            compose and build systems and applications. As part of an agile cryptographic approach, organizations should
+            seek to understand what cryptographic assets they are using and facilitate the assessment of the risk
+            posture to provide a starting point for mitigation.
+        </p>
+        <h3>Operations Bill of Materials (OBOM)</h3>
+        <p>
+            OBOMs provide a full-stack inventory of runtime environments, configurations, and additional dependencies.
+            CycloneDX is a full-stack bill of materials standard supporting entire runtime environments consisting of
+            hardware, firmware, containers, operating systems, applications, and libraries. Coupled with the ability to
+            specify configuration makes CycloneDX ideal for Operations Bill of Materials.
+        </p>
+        <h3>Manufacturing Bill of Materials (MBOM)</h3>
+        <p>
+            CycloneDX can describe declared and observed formulations for reproducibility throughout the product
+            lifecycle of components and services. This advanced capability provides transparency into how components
+            were made, how a model was trained, or how a service was created or deployed. In addition, every component
+            and service in a CycloneDX BOM can optionally specify formulation and do so in existing BOMs or in dedicated
+            MBOMs. By externalizing formulation into dedicated MBOMs, SBOMs can link to MBOMs for their components and
+            services, and access control can be managed independently. This allows organizations to maintain tighter
+            control over what parties gain access to inventory information in a BOM and what parties have access to
+            MBOM information which may have higher sensitivity and data classification.
+        </p>
+        <h3>Bill of Vulnerabilities (BOV)</h3>
+        <p>
+            CycloneDX BOMs may consist solely of vulnerabilities and thus can be used to share vulnerability data
+            between systems and sources of vulnerability intelligence. Complex vulnerability data can be represented,
+            including the vulnerability source, references, multiple severities, risk ratings, details and
+            recommendations, and the affected software and hardware, along with their versions.
+        </p>
+        <h3>Vulnerability Disclosure Report (VDR)</h3>
+        <p>
+            VDRs communicate known and unknown vulnerabilities affecting components and services. Known vulnerabilities
+            inherited from the use of third-party and open-source software can be communicated with CycloneDX. Previously
+            unknown vulnerabilities affecting both components and services may also be disclosed using CycloneDX, making
+            it ideal for Vulnerability Disclosure \Report (VDR) use cases. CycloneDX exceeds the data field requirements
+            defined in <a href="https://www.iso.org/standard/72311.html">ISO/IEC 29147:2018</a> for vulnerability
+            disclosure information.
+        </p>
+        <h3>Vulnerability Exploitability eXchange (VEX)</h3>
+        <p>
+            VEX conveys the exploitability of vulnerable components in the context of the product in which they're used.
+            VEX is a \subset of VDR. Oftentimes, products are not affected by a vulnerability simply by including an
+            otherwise vulnerable \component. VEX allows software vendors and other parties to communicate the
+            exploitability status of vulnerabilities, providing clarity on the vulnerabilities that pose a risk and the
+            ones that do not.
+        </p>
+        <h3>CycloneDX Attestations (CDXA)</h3>
+        <p>
+            CycloneDX Attestations enable organizations to communicate security standards, claims, and evidence about
+            security requirements, and attestations to the veracity and completeness of those claims. CycloneDX
+            Attestations is a way to manage "compliance as code."
+        </p>
+        <h3>Common Release Notes Format</h3>
+        <p>
+            CycloneDX standardizes release notes into a common, machine-readable format. This capability unlocks new
+            workflow potential for software publishers and consumers alike. This functionality works with or without the
+            Bill of Materials capabilities of the specification.
+        </p>
+    </emu-clause>
+    <emu-clause id="sec-cyclonedx-object-model">
+        <h1>CycloneDX Object Model</h1>
+        <p>Within the root element, CycloneDX defines the following object types:</p>
+        <img src="../excerpts/images/Object-Model/CycloneDX-Object-Type-Overview.svg" alt="BOM Metadata">
+        <p>The object types are arranged in order and contain (but are not limited to) the following types of data:</p>
+        <img src="../excerpts/images/CycloneDX-Object-Model-Swimlane.svg" alt="CycloneDX Object Model">
+
+        <h3>BOM Identity</h3>
+        <p>
+            The <code>bom</code> element has properties for <code>serialNumber</code> and <code>version</code>. Together
+            these two properties form the identity of a BOM. A BOM's identity can be expressed using a BOM-Link, a formally
+            registered URN capable of referencing a BOM or any component, service, or vulnerability in a BOM. Refer to the
+            chapter on Relationships for more information.
+        </p>
+
+        <h4>Serial Number</h4>
+        <p>
+            Every BOM generated should have a unique serial number, even if the contents of the BOM have not changed over
+            time. If specified, the serial number must conform to RFC-4122. The use of serial numbers is recommended.
+        </p>
+
+        <h4>Version</h4>
+        <p>
+            Whenever an existing BOM is modified, either manually or through automated processes, the version of the BOM
+            should be incremented by 1. When a system is presented with multiple BOMs with identical serial numbers, the
+            system should use the most recent version of the BOM. The default version is '1'.
+        </p>
+
+        <h3>The Anatomy of a CycloneDX BOM</h3>
+        <p>The following are descriptions of the root-level elements of a CycloneDX BOM.</p>
+
+        <h4>Metadata</h4>
+        <p>
+            BOM metadata includes the supplier, manufacturer, and target component for which the BOM describes. It also
+            includes the tools used to create the BOM, and licence information for the BOM document itself.
+        </p>
+        <img src="../excerpts/images/Object-Model/Metadata.svg" alt="Metadata">
+
+        <h4>Components</h4>
+        <p>
+            Components describe the complete inventory of first-party and third-party components. The specification can
+            represent software, hardware devices, machine learning models, source code, and configurations, along with the
+            manufacturer information, licence and copyright details, and complete pedigree and provenance for every component.
+        </p>
+        <img src="../excerpts/images/Object-Model/Components.svg" alt="Components">
+
+        <h4>Services</h4>
+        <p>
+            Services represent external APIs that the software may call. They describe endpoint URIs, authentication
+            requirements, and trust boundary traversals. The data flow between software and services can also be described,
+            including the data classifications and the flow direction of each type.
+        </p>
+        <img src="../excerpts/images/Object-Model/Services.svg" alt="Services">
+
+        <h4>Dependencies</h4>
+        <p>
+            CycloneDX provides the ability to describe components and their dependency on other components. The dependency
+            graph is capable of representing both direct and transitive relationships. Components that depend on services
+            can be represented in the dependency graph, and services that depend on other services can be represented as well.
+        </p>
+        <img src="../excerpts/images/Object-Model/Dependencies.svg" alt="Dependencies">
+
+        <h4>Compositions</h4>
+        <p>
+            Compositions describe constituent parts (including components, services, and dependency relationships) and their
+            completeness. The aggregate of each composition can be described as complete, incomplete, incomplete first-party
+            only, incomplete third-party only, or unknown.
+        </p>
+        <img src="../excerpts/images/Object-Model/Compositions.svg" alt="Compositions">
+
+        <h4>Vulnerabilities</h4>
+        <p>
+            Known vulnerabilities inherited from the use of third-party and open-source software and the exploitability of
+            the vulnerabilities can be communicated with CycloneDX. Previously unknown vulnerabilities affecting both
+            components and services may also be disclosed using CycloneDX, making it ideal for both vulnerability disclosure
+            and VEX use cases.
+        </p>
+        <img src="../excerpts/images/Object-Model/Vulnerabilities.svg" alt="Vulnerabilities">
+
+        <h4>Formulation</h4>
+        <p>
+            Formulation describes how something was manufactured or deployed. CycloneDX achieves this through the support of
+            multiple formulas, workflows, tasks, and steps, which represent the declared formulation for reproduction along
+            with the observed formula describing the actions which transpired in the manufacturing process.
+        </p>
+        <img src="../excerpts/images/Object-Model/Formulation.svg" alt="Formulation">
+
+        <h4>Annotations</h4>
+        <p>
+            Annotations contain comments, notes, explanations, or similar textual content which provide additional context to
+            the object(s) being annotated. They are often automatically added to a BOM via a tool or as a result of manual
+            review by individuals or organizations. Annotations can be independently signed and verified using digital signatures.
+        </p>
+        <img src="../excerpts/images/Object-Model/Annotations.svg" alt="Annotations">
+
+        <h4>Definitions</h4>
+        <p>
+            Standards, requirements, levels, and all supporting documentation are defined here. CycloneDX provides a general-purpose,
+            machine-readable way to define virtually any type of standard. Security standards such as OWASP ASVS, MASVS, SCVS, and
+            SAMM are available in CycloneDX format. Standards from other bodies are available as well. Additionally, organizations
+            can create internal standards and represent them in CycloneDX.
+        </p>
+        <img src="../excerpts/images/Object-Model/Definitions.svg" alt="Definitions">
+
+        <h4>Declarations</h4>
+        <p>
+            Declarations describe the conformance to standards. Each declaration may include attestations, claims, counter-claims,
+            evidence, counter-evidence, along with conformance and confidence. Signatories can also be declared and supports
+            both digital and analogue signatures. Declarations provide the basis for "compliance-as-code".
+        </p>
+        <img src="../excerpts/images/Object-Model/Declarations.svg" alt="Declarations">
+
+        <h4>Extensions</h4>
+        <p>
+            Multiple extension points exist throughout the CycloneDX object model, allowing fast prototyping of new capabilities
+            and support for specialized and future use cases. The CycloneDX project maintains extensions that are beneficial
+            to the larger community. The project encourages community participation and the development of extensions that
+            target specialized or industry-specific use cases.
+        </p>
+        <img src="../excerpts/images/Object-Model/Extensions.svg" alt="Extensions">
+
+        <h2>Serialization Formats</h2>
+        <p>CycloneDX can be represented in JSON, XML, and Protocol Buffers (protobuf) and has corresponding schemas for each.</p>
+
+        <emu-table id="table-cyclonedx-serialization-formats">
+            <caption>Serialization formats in CycloneDX</caption>
+            <table>
+                <thead>
+                <tr>
+                    <th>Format</th>
+                    <th>Resource</th>
+                    <th>URL</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>JSON</td>
+                    <td>Documentation</td>
+                    <td><a href="https://cyclonedx.org/docs/latest/json/">https://cyclonedx.org/docs/latest/json/</a></td>
+                </tr>
+                <tr>
+                    <td>JSON</td>
+                    <td>Schema</td>
+                    <td><a href="https://cyclonedx.org/schema/bom-1.7.schema.json">https://cyclonedx.org/schema/bom-1.7.schema.json</a></td>
+                </tr>
+                <tr>
+                    <td>XML</td>
+                    <td>Documentation</td>
+                    <td><a href="https://cyclonedx.org/docs/latest/xml/">https://cyclonedx.org/docs/latest/xml/</a></td>
+                </tr>
+                <tr>
+                    <td>XML</td>
+                    <td>Schema</td>
+                    <td><a href="https://cyclonedx.org/schema/bom-1.7.xsd">https://cyclonedx.org/schema/bom-1.7.xsd</a></td>
+                </tr>
+                <tr>
+                    <td>Protobuf</td>
+                    <td>Schema</td>
+                    <td><a href="https://cyclonedx.org/schema/bom-1.7.proto">https://cyclonedx.org/schema/bom-1.7.proto</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </emu-table>
+
+        <p>
+            CycloneDX relies exclusively on JSON Schema, XML Schema, and protobuf for validation. The entirety of the
+            specification can be validated using officially supported CycloneDX tools or via hundreds of available validators
+            that support JSON Schema, XML Schema, or protobuf.
+        </p>
+
+        <emu-note>
+            The CycloneDX JSON Schema is the reference implementation for the Ecma standard.
+        </emu-note>
+
+    </emu-clause>
+
+</emu-clause>

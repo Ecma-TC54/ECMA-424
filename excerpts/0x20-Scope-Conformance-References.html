@@ -1,0 +1,158 @@
+<emu-clause id="sec-scope">
+    <h1>Scope</h1>
+    <p>This standard defines the CycloneDX v1.7 Bill of materials specification.</p>
+</emu-clause>
+
+<emu-clause id="sec-conformance">
+    <h1>Conformance</h1>
+    <emu-clause id="sec-requirements-terminology">
+        <h1>Requirements Terminology</h1>
+        <p>
+            In this standard, the words that are used to define the significance of each requirement are detailed below.
+            These words are used in accordance with their definitions in <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>,
+            and their respective meanings are reproduced below:
+        </p>
+        <ul>
+            <li>Must: This word, or the adjective “required” and the auxiliary verb "shall", means that the item is an absolute requirement of the standard.</li>
+            <li>Should: This word, or the adjective “recommended”, means that there might exist valid reasons in particular circumstances to ignore this item, but the full implications should be understood and the case carefully weighed before making an implementation decision.</li>
+            <li>May: This word, or the adjective “optional”, means that this item is truly optional.</li>
+        </ul>
+        <p>The words "must not", "shall not", "should not", and "not recommended", are the negative forms of "must", "shall", "should", and "recommended", respectively. There is no negative form of "may".</p>
+    </emu-clause>
+    <emu-clause id="sec-implementation-conformance">
+        <h1>Implementation Conformance</h1>
+        <p>
+            This standard includes the implementation requirements that systems processing CycloneDX content must satisfy
+            in order to achieve conforming interoperability. An implementation is a consumer, or a producer, or both a
+            consumer and a producer.
+        </p>
+        <p>In order for a consumer to be considered conformant, the following rules apply:</p>
+        <ul>
+            <li>It must interpret and process the contents of CycloneDX BOMs in a manner conforming to this standard. A consumer is not required to interpret or process all of the content in a CycloneDX BOM.</li>
+            <li>It should instantiate a warning or error condition when a CycloneDX BOM is not conforming to this standard.</li>
+            <li>It must not instantiate an error condition in response to a CycloneDX BOM conforming to this standard.</li>
+            <li>When optional or recommended features contained within CycloneDX BOMs are accessed by a consumer, the consumer must interpret and process those features in a manner conforming to this standard.</li>
+        </ul>
+        <p>In order for a producer to be considered conformant, the following rules apply:</p>
+        <ul>
+            <li>Any CycloneDX BOM it creates must conform to this standard.</li>
+            <li>Any CycloneDX BOM it creates must conform to this standard.</li>
+            <li>It must not introduce any non-conforming CycloneDX content when modifying or enriching a CycloneDX BOM.</li>
+            <li>When a producer chooses to use an optional or recommended feature in an CycloneDX BOM, then the producer must create or modify that feature in a manner conforming to this standard.</li>
+        </ul>
+
+    </emu-clause>
+    <emu-clause id="sec-conformance-normative-optional" oldids="sec-conformance.normative-optional" example normative-optional>
+        <h1>Example Normative Optional Clause Heading</h1>
+        <p>Example clause contents.</p>
+    </emu-clause>
+</emu-clause>
+
+<emu-clause id="sec-normative-references">
+    <h1>Normative References</h1>
+    <p>The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.</p>
+    <p>
+        RFC 3986, <i>Uniform Resource Identifier (URI): Generic Syntax</i>.<br>
+        <a href="https://datatracker.ietf.org/doc/html/rfc3986">https://datatracker.ietf.org/doc/html/rfc3986</a>
+    </p>
+    <p>
+        ECMA ECMA-404, <i>The JSON Data Interchange Format</i><br>
+        <a href="https://ecma-international.org/publications-and-standards/standards/ecma-404/">https://ecma-international.org/publications-and-standards/standards/ecma-404/</a>
+    </p>
+    <p>
+        IETF RFC3339, <i>Date and Time on the Internet: Timestamps</i><br>
+        <a href="https://tools.ietf.org/html/rfc3339">https://tools.ietf.org/html/rfc3339</a>
+    </p>
+    <p>
+        IETF RFC3987, <i>Internationalized Resource Identifiers (IRIs)</i><br>
+        <a href="https://tools.ietf.org/html/rfc3987">https://tools.ietf.org/html/rfc3987</a>
+    </p>
+    <p>
+        W3C XML 1.1, <i>Extensible Markup Language (XML) 1.1 (Second Edition)</i><br>
+        <a href="http://www.w3.org/TR/2006/REC-xml11-20060816/">http://www.w3.org/TR/2006/REC-xml11-20060816/</a>
+    </p>
+    <p>
+        W3C XML Schema 1.0, <i>XML Schema Part 1: Structures Second Edition</i><br>
+        <a href="https://www.w3.org/TR/xmlschema-1/">https://www.w3.org/TR/xmlschema-1/</a>
+    </p>
+</emu-clause>
+
+<emu-clause id="sec-terms-definitions">
+    <h1>Terms and Definitions</h1>
+    <p>TODO</p>
+
+    <!-- TODO
+#
+For the purposes of this standard, the following definitions apply. Terms explicitly defined in this standard are not to
+be presumed to refer implicitly to similar terms defined elsewhere.
+
+<div style="visibility: hidden">
+\definition[4.1]{Attestation}{A formal declaration that something is true or accurate, often backed by documentation or verification from an authoritative source. It serves as a confirmation or proof of a fact, condition, or compliance with specific standards or requirements.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.2]{Author}{A person who creates written works, such as software or data.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.3]{Component function}{The purpose for which a software component exists. Examples of component functions include parsers, database persistence, and authentication providers.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.4]{Component type}{The general classification of a software components architecture. Examples of component types include libraries, frameworks, applications, containers, and operating systems.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.5]{Manufacturer}{An entity that develops and produces products such as virtual or physical goods.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.6]{Direct dependency}{A component that is referenced by a main (metadata) component itself.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.7]{Package URL (PURL)}{An ecosystem-agnostic specification which standardizes the syntax and location information of software components.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.8]{Pedigree}{Data which describes the lineage and/or process for which software has been created or altered.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.9]{Procurement}{The process of agreeing to terms and acquiring software or services for later use.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.10]{Provenance}{The chain of custody and origin of a software component. Provenance incorporates the point of origin through distribution as well as derivatives in the case of software that has been modified.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.11]{Provider}{An entity that offers services, infrastructure, or platforms. These services can include computing resources, storage, software applications, and networking capabilities.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.12]{Publisher}{An entity that produces and distributes content, such as software, to the public.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.13]{Software Identification (SWID)}{An ISO standard that formalizes how software is tagged.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.14]{Software Package Data Exchange (SPDX)}{A Linux Foundation project which produces a standardized list of open source licences and defines an expression language for those licences.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.15]{Supplier}{An entity that provides products or services to another entity, typically within a supply chain.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.16]{Third-party component}{Any software component not directly created including open source, "source available", and commercial or proprietary software.}
+</div>
+
+<div style="visibility: hidden">
+\definition[4.17]{Transitive dependency}{A software component that is indirectly used by another component by means of being a dependency of a dependency.}
+</div>
+
+-->
+</emu-clause>
