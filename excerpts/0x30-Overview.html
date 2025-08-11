@@ -188,9 +188,9 @@
     <emu-clause id="sec-cyclonedx-object-model">
         <h1>CycloneDX Object Model</h1>
         <p>Within the root element, CycloneDX defines the following object types:</p>
-        <img src="../excerpts/images/Object-Model/CycloneDX-Object-Type-Overview.svg" alt="BOM Metadata">
+        <img src="img/Object-Model/CycloneDX-Object-Type-Overview.svg" alt="BOM Metadata">
         <p>The object types are arranged in order and contain (but are not limited to) the following types of data:</p>
-        <img src="../excerpts/images/CycloneDX-Object-Model-Swimlane.svg" alt="CycloneDX Object Model">
+        <img src="img/CycloneDX-Object-Model-Swimlane.svg" alt="CycloneDX Object Model">
 
         <h3>BOM Identity</h3>
         <p>
@@ -221,7 +221,7 @@
             BOM metadata includes the supplier, manufacturer, and target component for which the BOM describes. It also
             includes the tools used to create the BOM, and licence information for the BOM document itself.
         </p>
-        <img src="../excerpts/images/Object-Model/Metadata.svg" alt="Metadata">
+        <img src="img/Object-Model/Metadata.svg" alt="Metadata">
 
         <h4>Components</h4>
         <p>
@@ -229,7 +229,7 @@
             represent software, hardware devices, machine learning models, source code, and configurations, along with the
             manufacturer information, licence and copyright details, and complete pedigree and provenance for every component.
         </p>
-        <img src="../excerpts/images/Object-Model/Components.svg" alt="Components">
+        <img src="img/Object-Model/Components.svg" alt="Components">
 
         <h4>Services</h4>
         <p>
@@ -237,7 +237,7 @@
             requirements, and trust boundary traversals. The data flow between software and services can also be described,
             including the data classifications and the flow direction of each type.
         </p>
-        <img src="../excerpts/images/Object-Model/Services.svg" alt="Services">
+        <img src="img/Object-Model/Services.svg" alt="Services">
 
         <h4>Dependencies</h4>
         <p>
@@ -245,7 +245,7 @@
             graph is capable of representing both direct and transitive relationships. Components that depend on services
             can be represented in the dependency graph, and services that depend on other services can be represented as well.
         </p>
-        <img src="../excerpts/images/Object-Model/Dependencies.svg" alt="Dependencies">
+        <img src="img/Object-Model/Dependencies.svg" alt="Dependencies">
 
         <h4>Compositions</h4>
         <p>
@@ -253,7 +253,7 @@
             completeness. The aggregate of each composition can be described as complete, incomplete, incomplete first-party
             only, incomplete third-party only, or unknown.
         </p>
-        <img src="../excerpts/images/Object-Model/Compositions.svg" alt="Compositions">
+        <img src="img/Object-Model/Compositions.svg" alt="Compositions">
 
         <h4>Vulnerabilities</h4>
         <p>
@@ -262,7 +262,7 @@
             components and services may also be disclosed using CycloneDX, making it ideal for both vulnerability disclosure
             and VEX use cases.
         </p>
-        <img src="../excerpts/images/Object-Model/Vulnerabilities.svg" alt="Vulnerabilities">
+        <img src="img/Object-Model/Vulnerabilities.svg" alt="Vulnerabilities">
 
         <h4>Formulation</h4>
         <p>
@@ -270,7 +270,7 @@
             multiple formulas, workflows, tasks, and steps, which represent the declared formulation for reproduction along
             with the observed formula describing the actions which transpired in the manufacturing process.
         </p>
-        <img src="../excerpts/images/Object-Model/Formulation.svg" alt="Formulation">
+        <img src="img/Object-Model/Formulation.svg" alt="Formulation">
 
         <h4>Annotations</h4>
         <p>
@@ -278,7 +278,7 @@
             the object(s) being annotated. They are often automatically added to a BOM via a tool or as a result of manual
             review by individuals or organizations. Annotations can be independently signed and verified using digital signatures.
         </p>
-        <img src="../excerpts/images/Object-Model/Annotations.svg" alt="Annotations">
+        <img src="img/Object-Model/Annotations.svg" alt="Annotations">
 
         <h4>Definitions</h4>
         <p>
@@ -287,7 +287,7 @@
             SAMM are available in CycloneDX format. Standards from other bodies are available as well. Additionally, organizations
             can create internal standards and represent them in CycloneDX.
         </p>
-        <img src="../excerpts/images/Object-Model/Definitions.svg" alt="Definitions">
+        <img src="img/Object-Model/Definitions.svg" alt="Definitions">
 
         <h4>Declarations</h4>
         <p>
@@ -295,7 +295,7 @@
             evidence, counter-evidence, along with conformance and confidence. Signatories can also be declared and supports
             both digital and analogue signatures. Declarations provide the basis for "compliance-as-code".
         </p>
-        <img src="../excerpts/images/Object-Model/Declarations.svg" alt="Declarations">
+        <img src="img/Object-Model/Declarations.svg" alt="Declarations">
 
         <h4>Extensions</h4>
         <p>
@@ -304,7 +304,7 @@
             to the larger community. The project encourages community participation and the development of extensions that
             target specialized or industry-specific use cases.
         </p>
-        <img src="../excerpts/images/Object-Model/Extensions.svg" alt="Extensions">
+        <img src="img/Object-Model/Extensions.svg" alt="Extensions">
 
         <h2>Serialization Formats</h2>
         <p>CycloneDX can be represented in JSON, XML, and Protocol Buffers (protobuf) and has corresponding schemas for each.</p>
