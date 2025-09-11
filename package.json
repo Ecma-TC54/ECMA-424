@@ -30,7 +30,7 @@
     "check-commit": "node scripts/check-commit"
   },
   "dependencies": {
-    "@apidevtools/json-schema-ref-parser": "^11.6.2",
+    "@apidevtools/json-schema-ref-parser": "^14.2.1",
     "ecmarkup": "^21.3.1",
     "js-beautify": "^1.15.4",
     "lodash": "^4.17.21"
