@@ -1,6 +1,6 @@
 <emu-clause id="sec-scope">
     <h1>Scope</h1>
-    <p>This standard defines the CycloneDX v1.7 Bill of materials specification.</p>
+    <p>This standard defines the CycloneDX v1.7 Bill of Materials specification.</p>
 </emu-clause>
 
 <emu-clause id="sec-conformance">
@@ -40,11 +40,6 @@
             <li>It must not introduce any non-conforming CycloneDX content when modifying or enriching a CycloneDX BOM.</li>
             <li>When a producer chooses to use an optional or recommended feature in an CycloneDX BOM, then the producer must create or modify that feature in a manner conforming to this standard.</li>
         </ul>
-
-    </emu-clause>
-    <emu-clause id="sec-conformance-normative-optional" oldids="sec-conformance.normative-optional" example normative-optional>
-        <h1>Example Normative Optional Clause Heading</h1>
-        <p>Example clause contents.</p>
     </emu-clause>
 </emu-clause>
 
@@ -77,82 +72,75 @@
     </p>
 </emu-clause>
 
-<emu-clause id="sec-terms-definitions">
-    <h1>Terms and Definitions</h1>
-    <p>TODO</p>
-
-    <!-- TODO
-#
-For the purposes of this standard, the following definitions apply. Terms explicitly defined in this standard are not to
-be presumed to refer implicitly to similar terms defined elsewhere.
-
-<div style="visibility: hidden">
-\definition[4.1]{Attestation}{A formal declaration that something is true or accurate, often backed by documentation or verification from an authoritative source. It serves as a confirmation or proof of a fact, condition, or compliance with specific standards or requirements.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.2]{Author}{A person who creates written works, such as software or data.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.3]{Component function}{The purpose for which a software component exists. Examples of component functions include parsers, database persistence, and authentication providers.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.4]{Component type}{The general classification of a software components architecture. Examples of component types include libraries, frameworks, applications, containers, and operating systems.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.5]{Manufacturer}{An entity that develops and produces products such as virtual or physical goods.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.6]{Direct dependency}{A component that is referenced by a main (metadata) component itself.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.7]{Package URL (PURL)}{An ecosystem-agnostic specification which standardizes the syntax and location information of software components.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.8]{Pedigree}{Data which describes the lineage and/or process for which software has been created or altered.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.9]{Procurement}{The process of agreeing to terms and acquiring software or services for later use.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.10]{Provenance}{The chain of custody and origin of a software component. Provenance incorporates the point of origin through distribution as well as derivatives in the case of software that has been modified.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.11]{Provider}{An entity that offers services, infrastructure, or platforms. These services can include computing resources, storage, software applications, and networking capabilities.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.12]{Publisher}{An entity that produces and distributes content, such as software, to the public.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.13]{Software Identification (SWID)}{An ISO standard that formalizes how software is tagged.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.14]{Software Package Data Exchange (SPDX)}{A Linux Foundation project which produces a standardized list of open source licences and defines an expression language for those licences.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.15]{Supplier}{An entity that provides products or services to another entity, typically within a supply chain.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.16]{Third-party component}{Any software component not directly created including open source, "source available", and commercial or proprietary software.}
-</div>
-
-<div style="visibility: hidden">
-\definition[4.17]{Transitive dependency}{A software component that is indirectly used by another component by means of being a dependency of a dependency.}
-</div>
-
--->
+<emu-clause id="sec-terms-and-definitions">
+  <h1>Terms and Definitions</h1>
+  <p>For the purposes of this document, the following terms and definitions apply. Terms explicitly defined in this standard are not to be presumed to refer implicitly to similar terms defined elsewhere.</p>
+  <emu-clause id="sec-terms-and-definitions-attestation">
+    <h1>Attestation</h1>
+    <p>A formal declaration that something is true or accurate, often backed by documentation or verification from an authoritative source. It serves as a confirmation or proof of a fact, condition, or compliance with specific standards or requirements.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-author">
+    <h1>Author</h1>
+    <p>A person who creates written works, such as software or data.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-component-function">
+    <h1>Component function</h1>
+    <p>The purpose for which a software component exists. Examples of component functions include parsers, database persistence, and authentication providers.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-component-type">
+    <h1>Component type</h1>
+    <p>The general classification of a software components architecture. Examples of component types include libraries, frameworks, applications, containers, and operating systems.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-manufacturer">
+    <h1>Manufacturer</h1>
+    <p>An entity that develops and produces products such as virtual or physical goods.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-direct-dependency">
+    <h1>Direct dependency</h1>
+    <p>A component that is referenced by a main (metadata) component itself.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-purl">
+    <h1>Package-URL (PURL)</h1>
+    <p>An ecosystem-agnostic specification which standardizes the syntax and location information of software components.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-pedigree">
+    <h1>Pedigree</h1>
+    <p>Data which describes the lineage and/or process for which software has been created or altered.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-procurement">
+    <h1>Procurement</h1>
+    <p>The process of agreeing to terms and acquiring physical or virtual goods or services.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-provenance">
+    <h1>Provenance</h1>
+    <p>The chain of custody and origin of a software component. Provenance incorporates the point of origin through distribution as well as derivatives in the case of software that has been modified.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-provider">
+    <h1>Provider</h1>
+    <p>An entity that offers services, infrastructure, or platforms. These services can include computing resources, storage, software applications, and networking capabilities.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-publisher">
+    <h1>Publisher</h1>
+    <p>An entity that produces and distributes content, such as software, to the public.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-swid">
+    <h1>Software Identification (SWID)</h1>
+    <p>An ISO standard that formalizes XML records that uniquely identify software products, versions, and installations to support asset management, security, and compliance.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-spdx">
+    <h1>Software Package Data Exchange (SPDX)</h1>
+    <p>A Linux Foundation project which produces a standardized list of open source licences and defines an expression language for those licences.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-supplier">
+    <h1>Supplier</h1>
+    <p>An entity that provides products or services to another entity, typically within a supply chain.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-third-party-component">
+    <h1>Third-party component</h1>
+    <p>Any software component not directly created including open source, "source available", and commercial or proprietary software.</p>
+  </emu-clause>
+  <emu-clause id="sec-terms-and-definitions-transitive-dependency">
+    <h1>Transitive dependency</h1>
+    <p>A software component that is indirectly used by another component by means of being a dependency of a dependency.</p>
+  </emu-clause>
 </emu-clause>
