@@ -13,7 +13,7 @@
     "fetch:jsf-schema": "node --input-type=module -e \"import fs from 'fs'; import { mkdirSync, writeFileSync } from 'fs'; import { basename } from 'path'; const url='https://raw.githubusercontent.com/CycloneDX/specification/refs/heads/1.7-dev/schema/jsf-0.82.schema.json'; const res=await fetch(url); const text=(await res.text()).replaceAll('#/definitions', 'jsf-0.82.schema.json#/definitions'); const filename=basename(url); const dir='schemas'; mkdirSync(dir, { recursive: true }); writeFileSync(dir + '/' + filename, text);\"",
     "fetch:spdx-schema": "node --input-type=module -e \"import fs from 'fs'; import { mkdirSync, writeFileSync } from 'fs'; import { basename } from 'path'; const url='https://raw.githubusercontent.com/CycloneDX/specification/refs/heads/1.7-dev/schema/spdx.schema.json'; const res=await fetch(url); const text=await res.text(); const filename=basename(url); const dir='schemas'; mkdirSync(dir, { recursive: true }); writeFileSync(dir + '/' + filename, text);\"",
     "fetch:crypto-schema": "node --input-type=module -e \"import fs from 'fs'; import { mkdirSync, writeFileSync } from 'fs'; import { basename } from 'path'; const url='https://raw.githubusercontent.com/CycloneDX/specification/refs/heads/1.7-dev/schema/cryptography-defs.schema.json'; const res=await fetch(url); const text=await res.text(); const filename=basename(url); const dir='schemas'; mkdirSync(dir, { recursive: true }); writeFileSync(dir + '/' + filename, text);\"",
-    "generate-spec": "npm run fetch:cdx-schema && npm run fetch:crypto-schema && npm run fetch:jsf-schema && npm run fetch:spdx-schema && node index.js",
+    "generate-spec": "npm run fetch:crypto-schema && npm run fetch:jsf-schema && npm run fetch:spdx-schema && node index.js",
     "ipr-check": "node scripts/check-form Ecma-TC54/ECMA-424 HEAD --all",
     "build-head-original": "npm run build-only -- --lint-spec --strict",
     "build-head": "npm run build-only -- --lint-spec",
@@ -31,7 +31,7 @@
     "check-commit": "node scripts/check-commit"
   },
   "dependencies": {
-    "@apidevtools/json-schema-ref-parser": "^11.6.2",
+    "@apidevtools/json-schema-ref-parser": "^14.2.1",
     "ecmarkup": "^21.3.1",
     "js-beautify": "^1.15.4",
     "lodash": "^4.17.21"
