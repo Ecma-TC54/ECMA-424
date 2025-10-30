@@ -14,6 +14,8 @@ function extractAndReplaceSections(html, tags) {
   const replacements = {};
   let counter = 0;
 
+  html = html.replaceAll(/<(http.+?\b)/g, "$1");
+
   tags.forEach(tag => {
     const regex = new RegExp(`<${tag}[^>]*?>[\\s\\S]*?<\\/${tag}>`, "gi");
     html = html.replace(regex, match => {
