@@ -1,78 +1,78 @@
 <emu-clause id="sec-scope">
-    <h1>Scope</h1>
-    <p>This Standard defines the CycloneDX v1.7 Bill of Materials specification.</p>
+  <h1>Scope</h1>
+  <p>This Standard defines the CycloneDX v1.7 Bill of Materials specification.</p>
 </emu-clause>
 
 <emu-clause id="sec-conformance">
-    <h1>Conformance</h1>
-    <emu-clause id="sec-requirements-terminology">
-        <h1>Requirements terminology</h1>
-        <p>
-            In this Standard, the words that are used to define the significance of each requirement are detailed below.
-            These words are used in accordance with their definitions in <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>,
-            and their respective meanings are reproduced below:
-        </p>
-        <ul>
-            <li>Must: This word, or the adjective “required” and the auxiliary verb "shall", means that the item is an absolute requirement of the standard.</li>
-            <li>Should: This word, or the adjective “recommended”, means that there might exist valid reasons in particular circumstances to ignore this item, but the full implications should be understood and the case carefully weighed before making an implementation decision.</li>
-            <li>May: This word, or the adjective “optional”, means that this item is truly optional.</li>
-        </ul>
-        <p>The words "must not", "shall not", "should not", and "not recommended", are the negative forms of "must", "shall", "should", and "recommended", respectively. There is no negative form of "may".</p>
-    </emu-clause>
-    <emu-clause id="sec-implementation-conformance">
-        <h1>Implementation conformance</h1>
-        <p>
-            This Standard includes the implementation requirements that systems processing CycloneDX content must satisfy
-            in order to achieve conforming interoperability. An implementation is a consumer, or a producer, or both a
-            consumer and a producer.
-        </p>
-        <p>In order for a consumer to be considered conformant, the following rules apply:</p>
-        <ul>
-            <li>It must interpret and process the contents of CycloneDX BOMs in a manner conforming to this Standard. A consumer is not required to interpret or process all of the content in a CycloneDX BOM.</li>
-            <li>It should instantiate a warning or error condition when a CycloneDX BOM is not conforming to this Standard.</li>
-            <li>It must not instantiate an error condition in response to a CycloneDX BOM conforming to this Standard.</li>
-            <li>When optional or recommended features contained within CycloneDX BOMs are accessed by a consumer, the consumer must interpret and process those features in a manner conforming to this Standard.</li>
-        </ul>
-        <p>In order for a producer to be considered conformant, the following rules apply:</p>
-        <ul>
-            <li>Any CycloneDX BOM it creates must conform to this Standard.</li>
-            <li>It must not introduce any non-conforming CycloneDX content when modifying or enriching a CycloneDX BOM.</li>
-            <li>When a producer chooses to use an optional or recommended feature in an CycloneDX BOM, then the producer must create or modify that feature in a manner conforming to this Standard.</li>
-        </ul>
-    </emu-clause>
+  <h1>Conformance</h1>
+  <emu-clause id="sec-requirements-terminology">
+    <h1>Requirements terminology</h1>
+    <p>
+      In this Standard, the words that are used to define the significance of each requirement are detailed below.
+      These words are used in accordance with their definitions in <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>,
+      and their respective meanings are reproduced below:
+    </p>
+    <ul>
+      <li>Must: This word, or the adjective “required” and the auxiliary verb "shall", means that the item is an absolute requirement of the standard.</li>
+      <li>Should: This word, or the adjective “recommended”, means that there might exist valid reasons in particular circumstances to ignore this item, but the full implications should be understood and the case carefully weighed before making an implementation decision.</li>
+      <li>May: This word, or the adjective “optional”, means that this item is truly optional.</li>
+    </ul>
+    <p>The words "must not", "shall not", "should not", and "not recommended", are the negative forms of "must", "shall", "should", and "recommended", respectively. There is no negative form of "may".</p>
+  </emu-clause>
+  <emu-clause id="sec-implementation-conformance">
+    <h1>Implementation conformance</h1>
+    <p>
+      This Standard includes the implementation requirements that systems processing CycloneDX content must satisfy
+      in order to achieve conforming interoperability. An implementation is a consumer, or a producer, or both a
+      consumer and a producer.
+    </p>
+    <p>In order for a consumer to be considered conformant, the following rules apply:</p>
+    <ul>
+      <li>It must interpret and process the contents of CycloneDX BOMs in a manner conforming to this Standard. A consumer is not required to interpret or process all of the content in a CycloneDX BOM.</li>
+      <li>It should instantiate a warning or error condition when a CycloneDX BOM is not conforming to this Standard.</li>
+      <li>It must not instantiate an error condition in response to a CycloneDX BOM conforming to this Standard.</li>
+      <li>When optional or recommended features contained within CycloneDX BOMs are accessed by a consumer, the consumer must interpret and process those features in a manner conforming to this Standard.</li>
+    </ul>
+    <p>In order for a producer to be considered conformant, the following rules apply:</p>
+    <ul>
+      <li>Any CycloneDX BOM it creates must conform to this Standard.</li>
+      <li>It must not introduce any non-conforming CycloneDX content when modifying or enriching a CycloneDX BOM.</li>
+      <li>When a producer chooses to use an optional or recommended feature in an CycloneDX BOM, then the producer must create or modify that feature in a manner conforming to this Standard.</li>
+    </ul>
+  </emu-clause>
 </emu-clause>
 
 <emu-clause id="sec-normative-references">
-    <h1>Normative references</h1>
-    <p>The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.</p>
-    <p>
-        ECMA-404, <i>The JSON data interchange syntax</i><br>
-        <a href="https://ecma-international.org/publications-and-standards/standards/ecma-404/">https://ecma-international.org/publications-and-standards/standards/ecma-404/</a>
-    </p>
-    <p>
-        IETF RFC 3339, <i>Date and Time on the Internet: Timestamps</i><br>
-        <a href="https://tools.ietf.org/html/rfc3339">https://tools.ietf.org/html/rfc3339</a>
-    </p>
-    <p>
-        IETF RFC 3986, <i>Uniform Resource Identifier (URI): Generic Syntax</i><br>
-        <a href="https://datatracker.ietf.org/doc/html/rfc3986">https://datatracker.ietf.org/doc/html/rfc3986</a>
-    </p>
-    <p>
-        IETF RFC 3987, <i>Internationalized Resource Identifiers (IRIs)</i><br>
-        <a href="https://tools.ietf.org/html/rfc3987">https://tools.ietf.org/html/rfc3987</a>
-    </p>
-    <p>
-        IETF RFC 4122, <i>A Universally Unique IDentifier (UUID) URN Namespace</i><br>
-        <a href="https://datatracker.ietf.org/doc/html/rfc4122">https://datatracker.ietf.org/doc/html/rfc4122</a>
-    </p>
-    <p>
-        W3C XML 1.1, <i>Extensible Markup Language (XML) 1.1 (Second Edition)</i><br>
-        <a href="http://www.w3.org/TR/2006/REC-xml11-20060816/">http://www.w3.org/TR/2006/REC-xml11-20060816/</a>
-    </p>
-    <p>
-        W3C XML Schema 1.0, <i>XML Schema Part 1: Structures Second Edition</i><br>
-        <a href="https://www.w3.org/TR/xmlschema-1/">https://www.w3.org/TR/xmlschema-1/</a>
-    </p>
+  <h1>Normative references</h1>
+  <p>The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.</p>
+  <p>
+    ECMA-404, <i>The JSON data interchange syntax</i><br>
+    <a href="https://ecma-international.org/publications-and-standards/standards/ecma-404/">https://ecma-international.org/publications-and-standards/standards/ecma-404/</a>
+  </p>
+  <p>
+    IETF RFC 3339, <i>Date and Time on the Internet: Timestamps</i><br>
+    <a href="https://tools.ietf.org/html/rfc3339">https://tools.ietf.org/html/rfc3339</a>
+  </p>
+  <p>
+    IETF RFC 3986, <i>Uniform Resource Identifier (URI): Generic Syntax</i><br>
+    <a href="https://datatracker.ietf.org/doc/html/rfc3986">https://datatracker.ietf.org/doc/html/rfc3986</a>
+  </p>
+  <p>
+    IETF RFC 3987, <i>Internationalized Resource Identifiers (IRIs)</i><br>
+    <a href="https://tools.ietf.org/html/rfc3987">https://tools.ietf.org/html/rfc3987</a>
+  </p>
+  <p>
+    IETF RFC 4122, <i>A Universally Unique IDentifier (UUID) URN Namespace</i><br>
+    <a href="https://datatracker.ietf.org/doc/html/rfc4122">https://datatracker.ietf.org/doc/html/rfc4122</a>
+  </p>
+  <p>
+    W3C XML 1.1, <i>Extensible Markup Language (XML) 1.1 (Second Edition)</i><br>
+    <a href="http://www.w3.org/TR/2006/REC-xml11-20060816/">http://www.w3.org/TR/2006/REC-xml11-20060816/</a>
+  </p>
+  <p>
+    W3C XML Schema 1.0, <i>XML Schema Part 1: Structures Second Edition</i><br>
+    <a href="https://www.w3.org/TR/xmlschema-1/">https://www.w3.org/TR/xmlschema-1/</a>
+  </p>
 </emu-clause>
 
 <emu-clause id="sec-terms-and-definitions">
