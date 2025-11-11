@@ -128,7 +128,19 @@
     text-align: left;
   }
 
-  ol {
+  #sec-- p:has(+ ol) {
+    break-before: avoid;
+  }
+
+  #sec-- ol li:first-child {
+    break-after: avoid;
+  }
+
+  #sec-- ol li:last-child {
+    break-before: avoid;
+  }
+
+  emu-example:only-of-type {
     break-before: avoid;
   }
 </style>
