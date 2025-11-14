@@ -128,14 +128,42 @@
     text-align: left;
   }
 
-  ol {
+  p:has(+ ol) {
     break-before: avoid;
+  }
+
+  #sec-- ol li:first-child {
+    break-after: avoid;
+  }
+
+  #sec-- ol li:last-child {
+    break-before: avoid;
+  }
+
+  emu-example:only-of-type {
+    break-before: avoid;
+  }
+
+  /* This style is here to handle when elements are generated between emu-clauses in Ecmarkup.js. Safe to delete once
+   that bug is remedied */
+  emu-clause + p:has(+ ol) {
+    break-before: auto;
+    break-after: avoid;
+  }
+
+  /* These styles are specifically for the print version of the second edition, probably best to delete and start over
+   with clause-specific styles in future editions  */
+  #sec--metadata-lifecycles- > p:has(+ ol),
+  #sec--components-cryptoproperties-certificateproperties-certificateextensions- > p:has(+ ol),
+  #sec--formulation-workflows-tasks-trigger-inputs-source-ref { /* This is not a typo or missing a p */
+    break-before: page;
   }
 </style>
 <pre class="metadata">
   title: CycloneDX Bill of materials specification
   shortname: ECMA-424
   status: standard
+  committee: 54
   location: https://tc54.org/ecma424/
   markEffects: true
   version: 2<sup>nd</sup> Edition
