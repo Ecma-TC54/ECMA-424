@@ -28,7 +28,7 @@ jobs:
           PUPPETEER_SKIP_DOWNLOAD: "true"
 
       - name: Cache node_modules
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
@@ -47,7 +47,7 @@ jobs:
           node-version: '18'
 
       - name: Restore node_modules
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
@@ -56,7 +56,7 @@ jobs:
         run: npm run generate-spec
 
       - name: Cache spec.html
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: spec.html
           key: spec-html-${{ github.sha }}
@@ -81,13 +81,13 @@ jobs:
           node-version: '18'
 
       - name: Restore node_modules
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
 
       - name: Restore spec.html
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: spec.html
           key: spec-html-${{ github.sha }}
@@ -139,13 +139,13 @@ jobs:
           node-version: '18'
 
       - name: Restore node_modules
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
 
       - name: Restore spec.html
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: spec.html
           key: spec-html-${{ github.sha }}
