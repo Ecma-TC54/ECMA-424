@@ -35,6 +35,6 @@
     "@apidevtools/json-schema-ref-parser": "^11.6.2",
     "ecmarkup": "^21.5.0",
     "js-beautify": "^1.15.4",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.23"
   }
 }
